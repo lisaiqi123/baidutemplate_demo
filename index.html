@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="baidutemplate.js"></script>
+</head>
+<body>
+<!-- 页面布局 -->
+<div id="lists"></div>
+
+<!--//百度模板-->
+<script type="text/html" id="template">
+    <h1><%=title%></h1>
+    <ul>
+        <%for(var i = 0; i < lists.length; i++){%>
+            <li><%= lists[i].id%><%= lists[i].name%></li>
+        <%}%>
+    </ul>
+</script>
+<script type="text/javascript">
+    var data = {
+        title:"信息列表",
+        lists:[
+            {id:0,name:"marry0"},
+            {id:1,name:"marry1"},
+            {id:2,name:"marry2"},
+            {id:3,name:"marry3"},
+
+        ]
+    }
+
+    //baidutemplate自带的方法
+    var html = baidu.template("template",data);
+    //将模板渲染到浏览器页面中
+    document.getElementById("lists").innerHTML = html;
+
+</script>
+</body>
+</html>
